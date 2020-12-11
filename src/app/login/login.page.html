@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding: 30px !important;">
+    <a style="text-decoration-line: none;" [routerLink]="['/register']">Go to account registration page</a>
+    <form style="padding: 30px 0;" [formGroup]="form" (ngSubmit)="submitForm()">
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="text" placeholder="Enter email here" [formControlName]="'email'"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input type="password" placeholder="Enter password here" [formControlName]="'password'"></ion-input>
+      </ion-item>
+      <div style="padding: 30px 0">
+        <ion-button type="submit" expand="block">
+          Login
+        </ion-button>
+      </div>
+      <a style="text-decoration-line: none;" [routerLink]="['/home']">Go to dashboard</a>
+    </form>
+    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+      <ion-button size="small" color="light" (click)="skipLogin()">Skipp login</ion-button>
+    </div>
+  </div>
+</ion-content>
