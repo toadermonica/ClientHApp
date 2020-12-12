@@ -34,14 +34,6 @@ export class HomePage implements AfterViewInit, OnInit, ViewWillEnter{
       this.accessTokenValue = response.access;
       this.refreshTokenValue = response.refresh;
     });
-
-    /*.then(response => {
-      console.log('I am ngoninit going once');
-      this.accessTokenValue = response.access;
-      this.refreshTokenValue = response.refresh;
-      console.log('Refresh is : ', response.refresh);
-      console.log('Access is : ', response.access);
-    });*/
   }
 
   logoutUser() {

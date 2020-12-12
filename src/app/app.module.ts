@@ -12,6 +12,8 @@ import {IonicStorageModule} from "@ionic/storage";
 import {HttpClientModule} from "@angular/common/http";
 import {AuthenticationService} from "./services/authentication.service";
 import {AuthguardGuard} from "./services/authguard.guard";
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +28,7 @@ import {AuthguardGuard} from "./services/authguard.guard";
     SplashScreen,
     AuthguardGuard,
     AuthenticationService,
+    NativeStorage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
