@@ -49,18 +49,21 @@ export class AuthenticationService {
         })
     );
   }
+
   fakeSignIn(){
     this.authenticationState.next(true);
+    const randomAccessToken = "AT" + Math.floor(Math.random() * (999 + 1)).toString();
+    const randomRefreshToken = "RT" + Math.floor(Math.random() * (999 + 1)).toString();
     this.storage.ready().then(() => {
-      localStorage.setItem(this.ACCESS_TOKEN_KEY, 'mock_acc_token');
-      localStorage.setItem(this.REFRESH_TOKEN_KEY, 'mock_refresh_token');
+      localStorage.setItem(this.ACCESS_TOKEN_KEY, randomAccessToken);
+      localStorage.setItem(this.REFRESH_TOKEN_KEY, randomRefreshToken);
     });
   }
 
   isAuthenticated() {
     return this.authenticationState.value;
   }
-a
+
   isLoggedIn() {
     this.storage.ready().then(() => {
       const token = localStorage.getItem(this.ACCESS_TOKEN_KEY);
@@ -79,10 +82,12 @@ a
     this.authenticationState.next(false);
   }
 
-  getTokensFromStorage() {
-    return {
-      access: localStorage.getItem(this.ACCESS_TOKEN_KEY),
-      refresh: localStorage.getItem(this.REFRESH_TOKEN_KEY)
-    };
+  async getTokensFromStorage() {
+    const tokens = {access: null, refresh: null};
+    return await this.storage.ready().then(() => {
+      tokens.access =  localStorage.getItem(this.ACCESS_TOKEN_KEY);
+      tokens.refresh =  localStorage.getItem(this.REFRESH_TOKEN_KEY);
+      return tokens;
+    });
   }
 }

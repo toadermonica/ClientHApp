@@ -1,5 +1,7 @@
 {
   "name": "ClientHApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

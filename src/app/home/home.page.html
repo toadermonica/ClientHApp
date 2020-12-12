@@ -1,20 +1,22 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content style="padding-left: 20px">
+  <div style="padding-bottom: 20px">
+    <ion-button size="small" (click)="logoutUser()">
+      <ion-icon name="exit-outline"></ion-icon>
+    </ion-button>
   </div>
+  <ion-label style="padding-left: 10px" position="stacked">Tokens from storage: </ion-label>
+  <ion-item style="padding: 30px 0; height: 100px !important;">
+    <ion-label position="stacked">Access Token: </ion-label>
+    <ion-textarea style="height: 100px !important;" disabled readonly [(ngModel)]="accessTokenValue"></ion-textarea>
+  </ion-item>
+  <ion-item style="padding: 30px 0; height: 100px !important;">
+    <ion-label position="stacked">Refresh Token: </ion-label>
+    <ion-textarea disabled readonly [(ngModel)]="refreshTokenValue"></ion-textarea>
+  </ion-item>
 </ion-content>
