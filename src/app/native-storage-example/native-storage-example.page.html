@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Native Storage Example</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="padding-left: 20px">
+ <div>
+   <div>
+     <ion-label style="padding-left: 10px" position="stacked">Create</ion-label>
+     <ion-item>
+       <ion-label style="padding-left: 10px" position="stacked">Title</ion-label>
+       <ion-input type="text" [(ngModel)]="insertDataTitle"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label style="padding-left: 10px" position="stacked">Content</ion-label>
+       <ion-input type="text" [(ngModel)]="insertDataContent"></ion-input>
+     </ion-item>
+   </div>
+   <ion-button size="small" (click)="addData()">Save</ion-button>
+   <ion-item>
+     <ion-label style="padding-left: 10px" position="stacked">Delete</ion-label>
+     <ion-input type="text" [(ngModel)]="deleteData"></ion-input>
+   </ion-item>
+   <ion-button size="small" (click)="deleteSelected()">Remove</ion-button>
+   <ion-button size="small" color="danger" (click)="deleteAll()">Remove all</ion-button>
+ </div>
+  <!-- List of Text Items -->
+  <ion-list>
+    <ion-item *ngFor="let data of nativeStorageData">
+      <ion-label>{{data}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

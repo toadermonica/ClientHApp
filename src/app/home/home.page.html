@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>dashboard</ion-title>
+    <ion-title>Main page - Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,4 +19,5 @@
     <ion-label position="stacked">Refresh Token: </ion-label>
     <ion-textarea disabled readonly [(ngModel)]="refreshTokenValue"></ion-textarea>
   </ion-item>
+  <a style="text-decoration-line: none;" [routerLink]="['/native-storage-example']">Use native storage</a>
 </ion-content>

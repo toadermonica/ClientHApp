@@ -20,7 +20,13 @@ const routes: Routes = [
     path: 'home',
     canActivate: [AuthguardGuard],
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'native-storage-example',
+    canActivate: [AuthguardGuard],
+    loadChildren: () => import('./native-storage-example/native-storage-example.module').then( m => m.NativeStorageExamplePageModule)
   }
+
 ];
 
 @NgModule({
