@@ -25,7 +25,13 @@ const routes: Routes = [
     path: 'native-storage-example',
     canActivate: [AuthguardGuard],
     loadChildren: () => import('./native-storage-example/native-storage-example.module').then( m => m.NativeStorageExamplePageModule)
+  },
+  {
+    path: 'cordova-file-plugin',
+    canActivate: [AuthguardGuard],
+    loadChildren: () => import('./cordova-file-plugin/cordova-file-plugin.module').then( m => m.CordovaFilePluginPageModule)
   }
+
 
 ];
 

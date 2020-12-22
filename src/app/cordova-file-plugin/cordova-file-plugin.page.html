@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cordova File Plugin Example</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="internal-storage" style="padding: 10px">
+    <ion-item>
+      <ion-input placeholder="Content saved in internal storage" [(ngModel)]="internalStorageData"></ion-input>
+    </ion-item>
+    <ion-button size="small" color="light" (click)="addDataToInternalStorage()">Save</ion-button>
+  </div>
+  <div>
+    <ion-button size="small" color="light" (click)="showInternalStorageData()">ShowData</ion-button>
+  </div>
+  <div class="external-storage" style="padding: 10px">
+    <ion-item>
+      <ion-input placeholder="Content saved in external storage" [(ngModel)]="externalStorageData"></ion-input>
+    </ion-item>
+    <ion-button size="small" color="light" (click)="addDataToExternalStorage()">Save</ion-button>
+  </div>
+    <p><a [href]="url">Click me!</a></p>
+</ion-content>

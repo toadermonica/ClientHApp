@@ -27,27 +27,27 @@ export class AuthenticationService {
     });
   }
 
-  userSignUp(user: User): Observable<HttpResponse<any>> {
-    return this.httpClient.post<any>(this.registerUserApi, user).pipe(
-        tap(async (res: any) => {
-          console.log('The response is now: ', res);
-          console.log('Yey we have a new user now!');
-        })
-    );
+  /*Registering a new user*/
+  userSignUp(user: User): Promise<HttpResponse<any>> {
+    return this.httpClient.post<any>("https://localhost:8443/users/register", user).toPromise()
+        .then(res => {return res})
+        .catch(error => {return error;}
+        );
   }
 
-  userSignIn(user: User): Observable<HttpResponse<any>> {
-    return this.httpClient.post<any>(this.authenticateUserApi, user).pipe(
-        tap(async (res: any) => {
-          if (res.accessToken && res.refreshToken) {
-            this.authenticationState.next(true);
-            this.storage.ready().then(() => {
-              localStorage.setItem(this.ACCESS_TOKEN_KEY, res.accessToken);
-              localStorage.setItem(this.REFRESH_TOKEN_KEY, res.refreshToken);
-            });
-          }
-        })
-    );
+  /*Logging in an existing user*/
+  userSignIn(user: User): Promise<any> {
+    return this.httpClient.post<any>("https://localhost:8443/users/register", user).toPromise().then(res => {
+      if (!res.accessToken && !res.refreshToken) {
+        this.authenticationState.next(true);
+        this.storage.ready().then(() => {
+          localStorage.setItem(this.ACCESS_TOKEN_KEY, res.accessToken);
+          localStorage.setItem(this.REFRESH_TOKEN_KEY, res.refreshToken);
+        });
+      }
+    }).catch(error => {
+      return {status: error.status, statusText: error.statusText}
+    });
   }
 
   fakeSignIn(){

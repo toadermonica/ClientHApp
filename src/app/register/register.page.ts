@@ -28,7 +28,7 @@ export class RegisterPage implements OnInit {
     const password = this.regform.getRawValue().regpassword;
     if(email && password){
       this.user = {email, password};
-      this.authenticationService.userSignUp(this.user).subscribe(Response => {
+      this.authenticationService.userSignUp(this.user).then(Response => {
         console.log(Response);
       });
     }
