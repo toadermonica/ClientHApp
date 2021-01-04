@@ -19,5 +19,8 @@
     <ion-label position="stacked">Refresh Token: </ion-label>
     <ion-textarea disabled readonly [(ngModel)]="refreshTokenValue"></ion-textarea>
   </ion-item>
-  <a style="text-decoration-line: none;" [routerLink]="['/native-storage-example']">Use native storage</a>
+  <div style="display: flex; flex-direction: column">
+    <a style="text-decoration-line: none; padding: 5px 0;" [routerLink]="['/native-storage-example']">Use native storage</a>
+    <a style="text-decoration-line: none; padding: 5px 0;" [routerLink]="['/cordova-file-plugin']">Use file plugin</a>
+  </div>
 </ion-content>

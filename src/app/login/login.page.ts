@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
     if (email && password){
       const user: User = {email, password};
       console.log('Now this user is: ', user);
-      await this.authenticationService.userSignIn(user).subscribe(Response => {
+      await this.authenticationService.userSignIn(user).then(Response => {
         console.log('This is the loggedin user: ', Response);
       });
     }
