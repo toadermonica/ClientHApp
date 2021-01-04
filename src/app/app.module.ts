@@ -10,9 +10,10 @@ import {HttpClientModule} from "@angular/common/http";
 import {AuthenticationService} from "./services/authentication.service";
 import {AuthguardGuard} from "./services/authguard.guard";
 
-import {IonicStorageModule} from "@ionic/storage";
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { File } from '@ionic-native/file/ngx';
+
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,7 @@ import { File } from '@ionic-native/file/ngx';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     IonicStorageModule.forRoot({
       name: 'CHADB',
-      driverOrder: ['sqlite', 'localstorage']
+      driverOrder: ['sqlite']
     }), HttpClientModule],
   providers: [
     StatusBar,

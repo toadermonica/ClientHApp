@@ -25,7 +25,7 @@ export class NativeStorageExamplePage implements OnInit, ViewWillEnter{
   async getAllData() {
     await this.platform.ready().then(() =>{
       this.nativeStorage.keys().then(keyArray => {
-        console.log('Response data from get all data is now: ', keyArray);
+        //get all data from storage using keyArray
         for(const key of keyArray){
           this.nativeStorage.getItem(key).then(value => {
             this.nativeStorageData.push(key);
@@ -37,7 +37,7 @@ export class NativeStorageExamplePage implements OnInit, ViewWillEnter{
   }
 
   addData() {
-    console.log('My insert data is now: ', this.insertDataTitle, ' and content ', this.insertDataContent);
+    //if there is data title and content then see if data exists in storage and save
     if(this.insertDataTitle && this.insertDataContent){
       if(this.findByReference(this.insertDataTitle)){
         this.saveData(this.insertDataTitle, this.insertDataContent);
@@ -53,6 +53,11 @@ export class NativeStorageExamplePage implements OnInit, ViewWillEnter{
       });
     }
   }
+
+  deleteAll() {
+    this.deleteAllNativeStorageData();
+  }
+
   private async saveData(reference:string, value:string){
     await this.platform.ready().then(() => {
       console.log('I have set an item ', reference, ' and content ', value);
@@ -63,10 +68,8 @@ export class NativeStorageExamplePage implements OnInit, ViewWillEnter{
   private async findByReference(reference: string):Promise<boolean> {
     await this.platform.ready().then(() => {
       return this.nativeStorage.getItem(reference).then(value => {
-        console.log('Value from findbyreference is: ', value);
         return !!value;
       }).catch(() => {
-        console.log('There is an error');
         return false;
       });
     });
@@ -79,9 +82,5 @@ export class NativeStorageExamplePage implements OnInit, ViewWillEnter{
       });
     });
     return false;
-  }
-
-  deleteAll() {
-    this.deleteAllNativeStorageData();
   }
 }
