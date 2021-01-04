@@ -1,6 +1,8 @@
-# HApp
+# Client-side prototype app
 ## Purpose of this project
-This project is the frontend of an application built with Ionic and AngularJs
+This project is the frontend prototype of an application built with Ionic and AngularJs. 
+It is not a fully functional application, as there were no properly defined functional requirements.
+This app contains certain prototype functionalities that are used as reference and support for a written work.
 ## How to start: 
 1. Make sure you have installed nodejs and npm package manager on the computer. They can be downloaded online.
 2. Clone the solution
